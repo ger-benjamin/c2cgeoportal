@@ -4,7 +4,8 @@
     "node_modules/openlayers/build/ol.ext/**/*.js",
     "node_modules/ngeo/src/**/*.js",
     "node_modules/ngeo/contribs/gmf/**/*.js",
-    "{{package}}/static-ngeo/js/**/*.js",
+    "{{package}}/static-ngeo/common/js/**/*.js",
+    "{{package}}/static-ngeo/${interface}/js/**/*.js",
     "{{package}}/static-ngeo/build/templatecache.js"
   ],
   "compile": {
@@ -36,7 +37,7 @@
       "ol.ENABLE_WEBGL=false"
     ],
     "js": [
-      "{{package}}/static-ngeo/js/${interface}.js",
+      "{{package}}/static-ngeo/${interface}/js/${interface}.js",
       "node_modules/openlayers/externs/olx.js",
       "node_modules/ngeo/externs/ngeox.js",
       "node_modules/openlayers/externs/oli.js"
