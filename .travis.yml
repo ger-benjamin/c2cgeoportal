@@ -54,6 +54,7 @@ script:
 - python setup.py --version
 - if [ ${TRAVIS_PULL_REQUEST} != "false" ] ; then git fetch origin ${TRAVIS_BRANCH}:${TRAVIS_BRANCH}; fi
 - if [ ${TRAVIS_PULL_REQUEST} != "false" ] ; then git diff --check ${TRAVIS_BRANCH} -- ; fi
+- if [ ! "`{ make help >/dev/null; } 2>&1`" == "" ] ; then make help >/dev/null; false ; fi
 - find /tmp/testgeomapfish/CONST_alembic -name \*.py | xargs .build/venv/bin/flake8 --copyright-check --copyright-min-file-size=1 --copyright-regexp="Copyright \(c\) [0-9\-]*$(shell date +%Y), Camptocamp SA" --max-line-length=100
 - find /tmp/testgeomapfish/setup.py /tmp/testgeomapfish/test/*.py /tmp/testgeomapfish/test/views -name \*.py | xargs .build/venv/bin/flake8 --max-line-length=100
 - find /tmp/testgeomapfish/setup.py /tmp/testgeomapfish/test/*.py /tmp/testgeomapfish/test/views -name \*.py | xargs travis/quote
@@ -61,6 +62,7 @@ script:
 - travis/test-new-project.sh wsgi/check_collector
 - travis/test-new-project.sh wsgi/check_collector?type=all
 - travis/status.sh /tmp/testgeomapfish/
+- cd /tmp/testgeomapfish/; if [ ! "`{ make -f travis.mk help >/dev/null; } 2>&1`" == "" ] ; then make -f travis.mk help >/dev/null; false ; fi
 - travis/empty-make-new-project.sh
 - travis/empty-make.sh -f travis.mk build
 - make -f travis.mk doc
