@@ -45,7 +45,6 @@ install_requires = [
     "pyramid_mako",
     "pyramid_chameleon",
     "psycopg2",
-    "alembic",
     "GeoAlchemy2",
     "SQLAHelper",
     "pyramid_tm",
@@ -71,10 +70,8 @@ install_requires = [
     "waitress",
     # WMST support
     "isodate",
-    "JSTools",
     "couchdbkit",  # missing dependency of formalchemy
     "pyramid_closure",
-    "lingua",
     "PyYAML",
 ]
 
